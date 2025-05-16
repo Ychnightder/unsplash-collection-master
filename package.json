@@ -9,11 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "express": "^5.1.0",
     "scss": "^0.2.4",
     "vue": "^3.5.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
+    "sass-embedded": "^1.89.0",
+    "scss-reset": "^1.4.6",
     "vite": "^6.3.5"
   }
 }
