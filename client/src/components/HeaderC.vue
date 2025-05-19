@@ -2,11 +2,13 @@
 </script>
 
 <template>
-    <div class="gg"></div>
+    <header class="header">
+
+    </header>
 </template>
 
 <style lang="scss" >
-    .gg{
+    .header{
         width: 100%;
         height: 63px;
         background: #000;
