@@ -1,13 +1,24 @@
-const pool = require('../config/db');  
-async function testDB() {
-  let connection;
-  try {
-    connection = await pool.getConnection();
-    const [rows] = await connection.query('SELECT 1 as test');
-    console.log('Résultat test DB :', rows);
-  } catch (err) {
-    console.error('Erreur DB :', err);
-  } 
-}
+const util = require('../config/db');
 
-testDB();
+(async () => {
+	const result = await util.Insert('Users', ['Email', 'Password'], ['yahoo@outlook.fr', '1234657']);
+	console.log(result);
+})();
+
+(async () => {
+	const result = await util.Select('Users');
+	console.log(result);
+})();
+
+(async () => {
+	const result = await util.Update('Users', {id: "1", Password: 'ychnightder' }, 'id = ?', [4]);
+	console.log(result);
+})();
+
+
+(async () => {
+	const result = await util.Delete("Users", "id = ?", [1]);
+	console.log(result);
+})();
+
+
