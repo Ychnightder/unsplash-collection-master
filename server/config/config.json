@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "401996",
+    "password": "Ychnightder7@",
+    "database": "ychnightder_unsplashcollectionmaster",
+    "host": "mysql-ychnightder.alwaysdata.net",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "401996",
+    "password": "Ychnightder7@",
+    "database": "ychnightder_unsplashcollectionmaster",
+    "host": "mysql-ychnightder.alwaysdata.net",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "401996",
+    "password": "Ychnightder7@",
+    "database": "ychnightder_unsplashcollectionmaster",
+    "host": "mysql-ychnightder.alwaysdata.net",
+    "dialect": "mysql"
+  }
+}

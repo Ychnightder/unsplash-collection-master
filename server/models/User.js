@@ -1,27 +1,57 @@
-class User {
-	#Id;
-	#email;
-	#passwrd;
+const { DataTypes } = require('sequelize');
+const { Utils } = require('../config/db');
 
-	constructor(Id, email, passwrd) {
-		this.#Id = Id;
-		this.#email = email;
-		this.#passwrd = passwrd;
-	}
+const defineUserModel = async () => {
+	let sequelize = await Utils.connectToDatabase();
+	return sequelize.define(
+		'User',
+		{
+			email: {
+				type: DataTypes.STRING,
+				unique: true,
+				allowNull: false,
+				validate: {
+					isEmail: true,
+				},
+			},
+			password: {
+				type: DataTypes.TEXT,
+				allowNull: false,
+			},
+		},
+		{
+			tableName: 'Users',
+			timestamps: true,
+		}
+	);
+};
 
-	get Id() {
-		return this.#Id;
-	}
-	get email() {
-		return this.#email;
-	}
-	get passwrd() {
-		return this.#passwrd;
-	}
 
-	toString() {
-		return `${this.Id} | ${this.email} | ${this.passwrd} `;
-	}
-}
+module.exports = {
+	defineUserModel
+};
 
-module.exports = User;
+// class UserInit {
+// 	#Id;
+// 	#email;
+// 	#password;
+//
+// 	constructor(Id = null, email, password) {
+// 		this.#Id = Id;
+// 		this.#email = email;
+// 		this.#password = password;
+// 	}
+// 	get Id() {
+// 		return this.#Id;
+// 	}
+// 	get email() {
+// 		return this.#email;
+// 	}
+// 	get password() {
+// 		return this.#password;
+// 	}
+//
+// 	toString() {
+// 		return `${this.Id} | ${this.email} | ${this.password} `;
+// 	}
+// }
