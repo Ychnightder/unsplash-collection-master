@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node server",
-    "sync-db": "node config/dbInit.js",
+    "sync-db": "node config/syncDb.js",
     "test": "jest"
   },
   "author": "",

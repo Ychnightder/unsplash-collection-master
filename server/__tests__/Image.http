@@ -1,0 +1,26 @@
+
+### GET All Image
+GET http://localhost:3000/api/image/
+
+
+
+
+###  POST create Image
+POST http://localhost:3000/api/image
+Content-Type: application/json
+
+{
+  "Id_unsplash": "abc456def",
+  "url": "https://unsplash.com/photos/abc456def",
+  "Author": "John Smith",
+  "published": "2022-12-10",
+  "download_url": "https://images.unsplash.com/photo-abc456def?auto=compress&cs=tinysrgb&w=1080"
+}
+
+### GET User
+GET http://localhost:3000/api/image/2
+
+
+### DELETE User
+DELETE http://localhost:3000/api/image/2
+

@@ -30,28 +30,3 @@ const defineUserModel = async () => {
 module.exports = {
 	defineUserModel
 };
-
-// class UserInit {
-// 	#Id;
-// 	#email;
-// 	#password;
-//
-// 	constructor(Id = null, email, password) {
-// 		this.#Id = Id;
-// 		this.#email = email;
-// 		this.#password = password;
-// 	}
-// 	get Id() {
-// 		return this.#Id;
-// 	}
-// 	get email() {
-// 		return this.#email;
-// 	}
-// 	get password() {
-// 		return this.#password;
-// 	}
-//
-// 	toString() {
-// 		return `${this.Id} | ${this.email} | ${this.password} `;
-// 	}
-// }

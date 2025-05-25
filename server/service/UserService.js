@@ -3,14 +3,12 @@ const { defineUserModel } = require('../models/User');
 const bcrypt = require('bcrypt');
 
 const UserFn = () => {
-
 	let UserDB;
 	const init = async () => {
 		if (!UserDB) {
 			UserDB = await defineUserModel();
 		}
 	};
-
 	/**
 	 * Crée un utilisateur
 	 * @return object
@@ -36,7 +34,6 @@ const UserFn = () => {
 			};
 		}
 	};
-
 	/**
 	 * Hachage du mot de passe
 	 * @param {string} password
@@ -78,7 +75,10 @@ const UserFn = () => {
 		const deletedCount = await UserDB.destroy({ where: { id } });
 		return deletedCount > 0;
 	};
-
+	/**
+	 * recuperer les users
+	 * @return [users]
+	 */
 	const getAllUsers = async () => {
 		try {
 			await init();
@@ -89,7 +89,6 @@ const UserFn = () => {
 			return { status: false, error: err.message };
 		}
 	};
-
 	return {
 		createUser,
 		findUserByEmail,
@@ -105,10 +104,3 @@ module.exports = {
 };
 
 
-// createUser(user)
-// findUserByEmail(email)
-// getUserById(id)
-// deleteUser(id)
-// updateUserEmail(id, newEmail)
-// hashPassword(password)
-// verifyPassword(password, hash)
