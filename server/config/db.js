@@ -10,12 +10,12 @@ const Utils = (() => {
 	const connectToDatabase = async () => {
 		if (!sequelize) {
 			sequelize = new Sequelize(
-				process.env.DB_NAME ,
-				process.env.DB_USER ,
-				process.env.DB_PASSWORD ,
+				process.env.DB_NAME || 'ychnightder_unsplashcollectionmaster',
+				process.env.DB_USER || '401996',
+				process.env.DB_PASSWORD || 'Ychnightder7@',
 				{
-					host: process.env.DB_HOST ,
-					port: process.env.DB_PORT ,
+					host: process.env.DB_HOST || 'mysql-ychnightder.alwaysdata.net',
+					port: process.env.DB_PORT || 3306,
 					dialect: 'mysql',
 					logging: false,
 				}
@@ -48,9 +48,5 @@ const Utils = (() => {
 module.exports = {
 	Utils,
 };
-
-
-
-
 
 let sequelize = Utils.connectToDatabase();

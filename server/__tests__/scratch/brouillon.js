@@ -1,4 +1,4 @@
-const { initializeModels } = require('../models/index.js');
+const { initializeModels } = require('../../models');
 (async () => {
     const { Collection, Image } = await initializeModels();
 

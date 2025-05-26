@@ -1,5 +1,5 @@
 <script setup>
-import HeaderC from "./components/HeaderC.vue"
+import HeaderC from "./components/shared/HeaderC.vue"
 </script>
 
 <template>
