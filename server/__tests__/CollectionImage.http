@@ -1,0 +1,42 @@
+#### Créer une nouvelle collection
+#POST http://localhost:3000/api/Collections
+#Content-Type: application/json
+#
+#{
+#  "collection_name": "Ma première collection"
+#}
+
+
+
+### Créer une nouvelle image
+POST http://localhost:3000/api/images
+Content-Type: application/json
+
+{
+  "Id_unsplash": "abc123",
+  "url": "https://unsplash.com/photo/abc123",
+  "Author": "John Doe",
+  "published": "2025-05-26",
+  "download_url": "https://unsplash.com/photo/abc123/download"
+}
+
+###
+
+### Ajouter une image à une collection (via endpoint spécifique)
+
+POST http://localhost:3000/api/collections/12/images
+Content-Type: application/json
+
+{
+  "imageId": 15
+}
+
+###
+
+### Récupérer toutes les images d'une collection
+GET http://localhost:3000/api/collections/13/images
+
+###
+#
+### Récupérer toutes les collections d'une image
+DELETE http://localhost:3000/api/collections/13/images/14

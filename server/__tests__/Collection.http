@@ -1,0 +1,21 @@
+### GET All Collections
+GET http://localhost:3000/api/Collections/
+
+
+
+###  POST create Collection
+POST http://localhost:3000/api/Collections
+Content-Type: application/json
+
+{
+  "collection_name": "plage",
+  "collection_description": "mer"
+}
+
+### GET Collection
+GET http://localhost:3000/api/Collections/1
+
+
+### DELETE Collection
+DELETE http://localhost:3000/api/Collections/10
+
