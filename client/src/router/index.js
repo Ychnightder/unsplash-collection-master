@@ -4,7 +4,8 @@ import ImagePage from '../views/ImagePage.vue';
 import Collections from '../views/Collections.vue';
 
 const routes = [
-    { path: '/', name: 'Home', component: Home },
+    { path: '/', redirect: '/home' },
+    { path: '/home', name: 'Home', component: Home },
     { path: '/image/:id', name: 'ImagePage', component: ImagePage },
     { path: '/collections', name: 'Collections', component: Collections }
 ];

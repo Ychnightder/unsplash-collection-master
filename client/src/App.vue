@@ -1,11 +1,12 @@
 <script setup>
-import HeaderC from "./components/shared/HeaderC.vue"
+import Navbar from "./components/Navbar.vue";
+
 </script>
 
 <template>
-  <HeaderC></HeaderC>
+  <Navbar  />
+  <router-view />
 </template>
 
 <style lang="scss" >
-
 </style>
