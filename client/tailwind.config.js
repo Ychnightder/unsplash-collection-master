@@ -15,6 +15,8 @@ module.exports = {
                 greyCustom: '#6C727F',
                 lightGreyCustom: '#E5E7EB',
                 white: '#FFFFFF',
+                bgLinkDark : "#212936",
+                outlineBottom : "#3c414d"
             },
 
         },
