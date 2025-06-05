@@ -1,11 +1,7 @@
-<script setup lang="ts">
-
+<script setup>
+import ImageSearchView from "../components/imageSearchView.vue";
 </script>
 
-<template>
+<template></template>
 
-</template>
-
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
