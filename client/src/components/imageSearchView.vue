@@ -1,6 +1,16 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { fetchTestImagesTest } from "../service/unsplash.js";
+import { useRouter } from "vue-router";
+import { useImageStore } from "../store/useImageStore";
+
+const router = useRouter();
+const imageStore = useImageStore();
+
+const goToDetail = (image) => {
+  imageStore.setImage(image);
+  router.push(`/image/${image.id}`);
+};
 
 defineProps({
   WordSearch: {
@@ -23,7 +33,8 @@ onMounted(async () => {
       <div
         v-for="(img, index) in images"
         :key="img.id"
-        class="rounded-md overflow-hidden text-center"
+        class="rounded-md overflow-hidden text-center cursor-pointer"
+        @click="goToDetail(img)"
       >
         <img
           :src="img.download_url || img.url"

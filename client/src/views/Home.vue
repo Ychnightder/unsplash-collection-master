@@ -33,7 +33,7 @@ const onSearchActivated = (value) => {
     :class="
       isSearchViewVisible
         ? 'justify-start h-[80px] bg-red-500 bg-[url(/resources/gradiend-bg@2x.png)]  '
-        : 'justify-center '
+        : 'justify-center  h-screen'
     "
   >
     <div
@@ -63,7 +63,7 @@ const onSearchActivated = (value) => {
       </p>
       <div
         class="w-full flex items-center justify-center"
-        :class="isSearchViewVisible ? ' absolute bottom-[-40px]  ' : ''"
+        :class="isSearchViewVisible ? ' absolute bottom-[-25px] ' : ''"
       >
         <SearchBar @search="onSearchActivated" />
       </div>
