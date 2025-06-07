@@ -37,8 +37,8 @@ onMounted(async () => {
         @click="goToDetail(img)"
       >
         <img
-          :src="img.download_url || img.url"
-          :alt="`Image de ${img.author}`"
+          :src="img.urls.regular"
+          :alt="`Image de ${img.user.name}`"
           class="w-full h-auto rounded-md"
         />
       </div>

@@ -68,15 +68,15 @@ const onSearchActivated = (value) => {
         <SearchBar @search="onSearchActivated" />
       </div>
     </div>
+ 
+   
   </div>
-  <imageSearchView
-    :WordSearch="searchQuery"
-    v-if="isSearchViewVisible"
-    class="absolute top-[20%] mt-20"
-  />
+
+   <div v-if="isSearchViewVisible" class="absolute top-[20%] mt-20">
+    <imageSearchView :WordSearch="searchQuery" />
+  </div>
+
 </template>
 <style lang="scss">
-body {
-  //overflow: hidden;
-}
+
 </style>
