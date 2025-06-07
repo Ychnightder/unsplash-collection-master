@@ -10,7 +10,16 @@ $grey : #6C727F;
 $lightGrey : #E5E7EB;
 $dark : #121826;
 $white : #FFFFFF;
+
+
+
 $vietam : "Be Vietnam Pro", sans-serif;
+
+.gradient-text {
+  @apply bg-gradient-to-r from-[#F2C593] to-[#8A3282];
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 
 body {

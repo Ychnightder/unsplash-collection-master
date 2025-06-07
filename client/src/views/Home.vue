@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import SearchBar from "../components/SearchBar.vue";
-import { fetchTestImagesTest } from "../service/unsplash.js";
 import ImageSearchView from "../components/imageSearchView.vue";
 
 const WindowWidth = ref(window.innerWidth);
@@ -21,7 +20,7 @@ onUnmounted(() => {
 const isSearchViewVisible = ref(false);
 const searchQuery = ref("");
 const onSearchActivated = (value) => {
-  console.log("Recherche effectuée avec :", value);
+  // console.log("Recherche effectuée avec :", value);
   searchQuery.value = value;
   isSearchViewVisible.value = true;
 };
@@ -68,13 +67,15 @@ const onSearchActivated = (value) => {
         <SearchBar @search="onSearchActivated" />
       </div>
     </div>
- 
+
+
+    <div v-if="isSearchViewVisible" class="absolute top-[20%] mt-20">
+    <imageSearchView :WordSearch="searchQuery" />
+  </div>
    
   </div>
 
-   <div v-if="isSearchViewVisible" class="absolute top-[20%] mt-20">
-    <imageSearchView :WordSearch="searchQuery" />
-  </div>
+  
 
 </template>
 <style lang="scss">

@@ -30,3 +30,4 @@ server/.env
 server/.env
 server/rappel.txt
 server/config/db.js
+server/config/db.js

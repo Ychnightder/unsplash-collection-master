@@ -38,7 +38,7 @@ onMounted(async () => {
       >
         <img
           :src="img.urls.regular"
-          :alt="`Image de ${img.user.name}`"
+          :alt="`Image de ${img.user.name}-${index}`"
           class="w-full h-auto rounded-md"
         />
       </div>

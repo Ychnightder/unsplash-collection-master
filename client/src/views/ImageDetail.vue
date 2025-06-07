@@ -36,7 +36,7 @@ function formatDate(dateString) {
 <template>
   <div
     v-if="image"
-    class="mx-[100px] mt-20 w-auto h-screen flex flex-row content-center gap-10"
+    class="mx-[100px] mt-24 w-auto h-screen flex flex-row content-center gap-10"
   >
     <div class="w-1/2 h-[90%] flex justify-end items-start">
       <img
@@ -86,6 +86,10 @@ function formatDate(dateString) {
             />
             <span class="text-sm">Add to collection</span>
           </button>
+        </div>
+
+        <div class="flex flex-col gap-2  mt-10">
+          <h1 class="text-2xl font-semibold">Collections</h1>
         </div>
       </div>
     </div>
