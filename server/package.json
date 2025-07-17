@@ -1,31 +1,28 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "dev": "node server",
-    "sync-db": "node config/syncDb.js",
-    "test": "jest"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@jest/globals": "^29.7.0",
-    "bcrypt": "^6.0.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "mariadb": "^3.4.2",
-    "mysql2": "^3.14.1",
-    "sequelize": "^6.37.7"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0",
-    "sequelize-cli": "^6.6.3"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "verbose": true
-  }
+	"name": "server",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"dev": "ts-node server.ts",
+		"build": "tsc",
+		"start": "ts-node server.ts",
+		"test": "vitest",
+		"test:ui": "vitest --ui"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt": "^6.0.0",
+		"cors": "^2.8.5",
+		"dotenv": "^16.6.1",
+		"express": "^5.1.0",
+		"mysql2": "^3.14.2"
+	},
+	"devDependencies": {
+		"@types/express": "^5.0.3",
+		"@types/node": "^24.0.14",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.3",
+		"vitest": "^3.2.4"
+	}
 }

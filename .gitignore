@@ -10,7 +10,7 @@ lerna-debug.log*
 server/.env
 client/.env
 
-server/config/db.js
+server/database/db.js
 node_modules
 dist
 dist-ssr
@@ -26,8 +26,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-server/.env
-server/.env
+
 server/rappel.txt
-server/config/db.js
-server/config/db.js
+
+suggestion IA/Sequelize
+suggestion IA/docs
+
+/generated/prisma
+/server/generated/
