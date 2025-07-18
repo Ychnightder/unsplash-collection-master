@@ -8,15 +8,16 @@
 
 
 
+
 ### Créer une nouvelle image
-POST http://localhost:3000/api/images
+POST http://localhost:3000/api/Images
 Content-Type: application/json
 
 {
-  "Id_unsplash": "abc123",
+  "id": "abc12485483",
   "url": "https://unsplash.com/photo/abc123",
-  "Author": "John Doe",
-  "published": "2025-05-26",
+  "author": "John Doe",
+  "publishedAt": "2025-05-26",
   "download_url": "https://unsplash.com/photo/abc123/download"
 }
 
@@ -24,11 +25,15 @@ Content-Type: application/json
 
 ### Ajouter une image à une collection (via endpoint spécifique)
 
-POST http://localhost:3000/api/collections/12/images
+
+
+
+
+POST http://localhost:3000/api/collections/2/images
 Content-Type: application/json
 
 {
-  "imageId": 15
+  "image_id": "abc12485483"
 }
 
 ###
