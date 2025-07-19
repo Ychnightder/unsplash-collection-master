@@ -1,13 +1,7 @@
 import { fakeImage } from './data.js';
 
 export async function fetchTestImagesTest(limit = 30, page = 1) {
-	// const url = `https://picsum.photos/v2/list?page=${page}&limit=${limit}`;
-
 	try {
-		// const response = await fetch(url);
-		// if (!response.ok) {
-		//   throw new Error(response.statusText);
-		// }
 		const images = Array.from({ length: limit }, (_, i) => {
 			const clone = JSON.parse(JSON.stringify(fakeImage));
 

@@ -28,7 +28,7 @@ onMounted(async () => {
   <div class="mx-[100px]">
     <div
       v-if="images.length"
-      class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-[35px] space-y-[35px]"
+      class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-[35px] space-y-[35px] mt-20"
     >
       <div
         v-for="(img, index) in images"
