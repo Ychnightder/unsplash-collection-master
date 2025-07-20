@@ -2,6 +2,9 @@
 import axios from "axios";
 import { ref, onMounted } from "vue";
 import AddCollection from "../components/addCollection.vue";
+import { useRouter } from "vue-router";
+
+import { useCollectionStore } from "../store/useCollectionStore.js";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -9,6 +12,8 @@ const api = axios.create({
 
 const collections = ref([]);
 const showModal = ref(false);
+const router = useRouter();
+const collectionStore = useCollectionStore();
 
 const fetchCollections = async () => {
   try {
@@ -19,7 +24,13 @@ const fetchCollections = async () => {
   }
 }
 
-onMounted(fetchCollections);
+
+const goToDetail = (collection) => {
+  collectionStore.setSelectedCollection(collection);
+  router.push( `/collections/${collection.id}` );
+}
+
+  onMounted(fetchCollections);
 
 
 </script>
@@ -43,6 +54,7 @@ onMounted(fetchCollections);
         v-for="collection in collections"
         :key="collection.id"
         class="w-[330px] h-[220px] rounded-md cursor-pointer"
+        @click="goToDetail(collection)"
       >
         <div class="w-full h-3/4 bg-slate-700  mb-[19px]"></div>
         <h2 class="text-xl font-medium dark:text-greyCustom">

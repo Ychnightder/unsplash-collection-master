@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { fetchTestImagesTest } from "../service/unsplash.js";
+import { fetchImagesUnsplash, fetchTestImagesTest } from "../service/unsplash.js";
 import { useRouter } from "vue-router";
 import { useImageStore } from "../store/useImageStore";
 
@@ -12,7 +12,7 @@ const goToDetail = (image) => {
   router.push(`/image/${image.id}`);
 };
 
-defineProps({
+const props = defineProps({
   WordSearch: {
     type: String,
     required: true,
@@ -20,7 +20,7 @@ defineProps({
 });
 const images = ref([]);
 onMounted(async () => {
-  images.value = await fetchTestImagesTest();
+  images.value = await fetchImagesUnsplash(props.WordSearch);
 });
 </script>
 

@@ -1,8 +1,12 @@
 import { fakeImage } from './data.js';
 
 export async function fetchTestImagesTest(limit = 30, page = 1) {
-	try {
+  try {
+
 		const images = Array.from({ length: limit }, (_, i) => {
+
+
+
 			const clone = JSON.parse(JSON.stringify(fakeImage));
 
 			const imgId = 1018 + i;
@@ -19,7 +23,9 @@ export async function fetchTestImagesTest(limit = 30, page = 1) {
 			};
 			clone.links.download = clone.urls.full;
 
-			return clone;
+			// return clone;
+
+      return [];
 		});
 		return images;
 	} catch (error) {
@@ -27,3 +33,32 @@ export async function fetchTestImagesTest(limit = 30, page = 1) {
 		return [];
 	}
 }
+
+
+
+export async function fetchImagesUnsplash(query, page = 30) {
+
+  if (!query) {
+    return [];
+  }
+  try {
+    const response = await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=${page}`, {
+      headers: {
+        'Authorization': `Client-ID ${import.meta.env.VITE_ACCESS_KEY}`
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.results || [];
+
+  } catch (error) {
+    return [];
+  }
+
+
+}
+
+

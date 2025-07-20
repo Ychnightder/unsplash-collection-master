@@ -1,11 +1,19 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { nextTick, onMounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
-import { useImageStore } from "../store/useImageStore";
+import { useImageStore } from "../store/useImageStore.js";
 
 const router = useRouter();
 const imageStore = useImageStore();
 const image = ref(null);
+
+
+watch(
+  () => imageStore.selectedImage,
+  (newVal) => {
+    if (newVal)  image.value = newVal;
+  }
+);
 
 onMounted(() => {
   // Met à jour la variable locale `image` dès que `selectedImage` est disponible
@@ -13,14 +21,16 @@ onMounted(() => {
 
   if (!image.value) {
     // on attend un peu pour laisser Pinia hydrater, puis on vérifie
-    setTimeout(() => {
-      if (!imageStore.selectedImage) {
-        router.push("/");
-      } else {
+    nextTick(() => {
+      if (imageStore.selectedImage) {
         image.value = imageStore.selectedImage;
+      } else {
+        router.push("/");
       }
-    }, 50);
+    });
   }
+
+  console.log(image.value)
 });
 
 function formatDate(dateString) {
@@ -69,7 +79,7 @@ function formatDate(dateString) {
             class="bg-colorbtn rounded-md px-4 py-2 flex flex-row items-center gap-2"
           >
             <img
-              src="/resources/down arrow.svg"
+              src="/resources/down%20arrow.svg"
               alt="add-to-collection"
               class="w-4 h-4"
             />

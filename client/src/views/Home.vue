@@ -2,14 +2,17 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import SearchBar from "../components/SearchBar.vue";
 import ImageSearchView from "../components/imageSearchView.vue";
+import { fetchImagesUnsplash } from "../service/unsplash.js";
 
 const WindowWidth = ref(window.innerWidth);
 
 const handleResize = () => {
   WindowWidth.value = window.innerWidth;
 };
-onMounted(() => {
+onMounted( async () => {
   window.addEventListener("resize", handleResize);
+
+
 });
 const isMobile = computed(() => WindowWidth.value < 768);
 
