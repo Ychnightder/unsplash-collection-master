@@ -1,6 +1,10 @@
 <script setup>
 import { ref } from "vue";
 
+const props = defineProps({
+    placeholder: String,
+    width: Number,
+})
 const emit = defineEmits(["search"]);
 const searchText = ref("");
 
@@ -12,12 +16,12 @@ const triggerSearch = () => {
 </script>
 
 <template>
-  <div class="relative w-[570px] h-[50px] rounded-lg duration-300 transition">
+  <div class="relative w h-[50px] rounded-lg duration-300 transition" :style="{ width: props.width + 'px' }">
     <input
       v-model="searchText"
       @keyup.enter="triggerSearch"
       class="duration-300 transition w-full h-full rounded-lg p-6 border-2 border-outilineInput border-solid dark:border-bgLinkDark dark:bg-bgLinkDark dark:text-greyCustom"
-      placeholder="Enter your keyword..."
+      :placeholder= "props.placeholder"
       type="text"
       name="search-bar"
       id="search-bar"

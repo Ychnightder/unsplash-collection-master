@@ -16,5 +16,5 @@ app.use("/api/Images", imageRoutes);
 app.use("/api/collections", collectionImageRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`🫱🏾‍🫲🏿 http://localhost:${PORT} 🫱🏾‍🫲🏿`);
 });

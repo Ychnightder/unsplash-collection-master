@@ -15,11 +15,62 @@ export async function getImageById(req: Request, res: Response) {
 }
 
 export async function createImage(req: Request, res: Response) {
-  const { id, url, author, publishedAt } = req.body;
-  const success = await imageService.create({ id, url, author, publishedAt });
-  if (!success)
-    return res.status(400).json({ error: "Failed to create image" });
-  return res.status(201).json({ success: true });
+  try{
+    const {
+      id,
+      url,
+      author,
+      publishedAt,
+      liked_by_user,
+      url_regular,
+      likes,
+      description,
+      url_raw,
+      url_full,
+      url_small,
+      url_thumb,
+      link_self,
+      link_download,
+      username,
+      user_name,
+      user_total_likes,
+      user_total_photos,
+      user_profile_image_medium,
+    } = req.body;
+
+    if (!id || !url || !author || !publishedAt) {
+      return res.status(400).json({ error: "Champs obligatoires manquants" });
+    }
+
+    const success = await imageService.create({
+      id,
+      url,
+      author,
+      publishedAt,
+      liked_by_user,
+      url_regular,
+      likes,
+      description,
+      url_raw,
+      url_full,
+      url_small,
+      url_thumb,
+      link_self,
+      link_download,
+      username,
+      user_name,
+      user_total_likes,
+      user_total_photos,
+      user_profile_image_medium,
+    });
+    if (!success)
+      return res.status(400).json({ error: "Failed to create image" });
+    return res.status(201).json({ success: true });
+
+} catch (error) {
+  console.error("Erreur createImage:", error);
+  return res.status(500).json({ error: "Erreur serveur" });
+}
 }
 
 export async function deleteImage(req: Request, res: Response) {

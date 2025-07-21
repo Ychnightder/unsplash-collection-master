@@ -67,7 +67,7 @@ const onSearchActivated = (value) => {
         class="w-full flex items-center justify-center"
         :class="isSearchViewVisible ? ' absolute bottom-[-25px] ' : ''"
       >
-        <SearchBar @search="onSearchActivated" />
+        <SearchBar @search="onSearchActivated" placeholder="Enter your keyword..." :width="570" />
       </div>
     </div>
 

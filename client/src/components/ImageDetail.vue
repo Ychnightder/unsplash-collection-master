@@ -2,6 +2,7 @@
 import { nextTick, onMounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import { useImageStore } from "../store/useImageStore.js";
+import AddImageInCollection from "./addImageInCollection.vue";
 
 const router = useRouter();
 const imageStore = useImageStore();
@@ -15,8 +16,7 @@ watch(
   }
 );
 
-onMounted(() => {
-  // Met à jour la variable locale `image` dès que `selectedImage` est disponible
+const  loadImage = () => {
   image.value = imageStore.selectedImage;
 
   if (!image.value) {
@@ -29,9 +29,9 @@ onMounted(() => {
       }
     });
   }
+}
 
-  console.log(image.value)
-});
+onMounted(loadImage);
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -44,19 +44,26 @@ function formatDate(dateString) {
 </script>
 
 <template>
+
+
+
+
+
   <div
     v-if="image"
     class="mx-[100px] mt-24 w-auto h-screen flex flex-row content-center gap-10"
   >
-    <div class="w-1/2 h-[90%] flex justify-end items-start">
+<!--  w-1/2   h-[90%]-->
+    <div class=" flex justify-end items-start">
       <img
         :src="image.urls.regular"
         :alt="image.author"
-        class="rounded-md w-full h-full object-cover"
+        class="rounded-md "
       />
+
     </div>
     <div class="w-1/2 h-full flex flex-col">
-      <div class="w-full flex flex-col gap-3">
+      <div class="w-full flex flex-col gap-3 ">
         <div class="flex flex-row items-center gap-3">
           <div class="w-[60px] h-[60px] bg-gray-300 rounded-full">
             <img
@@ -102,6 +109,8 @@ function formatDate(dateString) {
           <h1 class="text-2xl font-semibold">Collections</h1>
         </div>
       </div>
+      <add-image-in-collection  show="true"/>
+<!--        <pre>{{ image }}</pre>-->
     </div>
   </div>
 </template>
