@@ -4,15 +4,24 @@ import { ref } from "vue";
 const props = defineProps({
     placeholder: String,
     width: Number,
+  searchKey: String,
 })
 const emit = defineEmits(["search"]);
 const searchText = ref("");
 
 const triggerSearch = () => {
   if (searchText.value.trim() !== "") {
-    emit("search", searchText.value); // on émet l'événement avec la valeur
+    emit("search", {
+      key: props.searchKey,
+      value: searchText.value,
+    });
   }
 };
+
+
+
+
+
 </script>
 
 <template>

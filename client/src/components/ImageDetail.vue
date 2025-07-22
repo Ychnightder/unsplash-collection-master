@@ -109,7 +109,7 @@ function formatDate(dateString) {
           <h1 class="text-2xl font-semibold">Collections</h1>
         </div>
       </div>
-      <add-image-in-collection  show="true"/>
+      <add-image-in-collection  show="false"/>
 <!--        <pre>{{ image }}</pre>-->
     </div>
   </div>

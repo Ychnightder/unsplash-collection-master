@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { fetchImagesUnsplash, fetchTestImagesTest } from "../service/unsplash.js";
 import { useRouter } from "vue-router";
 import { useImageStore } from "../store/useImageStore";
+import { fetchImagesUnsplash } from "../service/unsplash.js";
 
 const router = useRouter();
 const imageStore = useImageStore();
@@ -15,7 +15,6 @@ const goToDetail = (image) => {
 const props = defineProps({
   WordSearch: {
     type: String,
-    required: true,
   },
 });
 const images = ref([]);

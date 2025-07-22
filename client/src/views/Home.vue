@@ -9,11 +9,11 @@ const WindowWidth = ref(window.innerWidth);
 const handleResize = () => {
   WindowWidth.value = window.innerWidth;
 };
+
 onMounted( async () => {
   window.addEventListener("resize", handleResize);
-
-
 });
+
 const isMobile = computed(() => WindowWidth.value < 768);
 
 onUnmounted(() => {
@@ -23,7 +23,6 @@ onUnmounted(() => {
 const isSearchViewVisible = ref(false);
 const searchQuery = ref("");
 const onSearchActivated = (value) => {
-  // console.log("Recherche effectuée avec :", value);
   searchQuery.value = value;
   isSearchViewVisible.value = true;
 };
@@ -67,7 +66,7 @@ const onSearchActivated = (value) => {
         class="w-full flex items-center justify-center"
         :class="isSearchViewVisible ? ' absolute bottom-[-25px] ' : ''"
       >
-        <SearchBar @search="onSearchActivated" placeholder="Enter your keyword..." :width="570" />
+        <SearchBar @search="onSearchActivated" searchKey="image" placeholder="Enter your keyword..." :width="570" />
       </div>
     </div>
 
