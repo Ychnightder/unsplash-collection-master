@@ -1,7 +1,7 @@
 <script setup >
 import { useRouter } from "vue-router";
 import { nextTick, onMounted, ref, watch } from "vue";
-import { useCollectionStore } from "../store/useCollectionStore.js";
+import { useCollectionStore } from "../../store/useCollectionStore.js";
 import Color from "colorjs.io";
 
 const router = useRouter();

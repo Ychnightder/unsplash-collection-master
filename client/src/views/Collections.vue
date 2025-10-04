@@ -1,7 +1,7 @@
 <script setup>
 import axios from "axios";
 import { ref, onMounted } from "vue";
-import AddCollection from "../components/addCollection.vue";
+import AddCollection from "../components/Collection/addCollection.vue";
 import { useRouter } from "vue-router";
 
 import { useCollectionStore } from "../store/useCollectionStore.js";

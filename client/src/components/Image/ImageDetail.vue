@@ -1,13 +1,18 @@
 <script setup>
 import { nextTick, onMounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
-import { useImageStore } from "../store/useImageStore.js";
+import { useImageStore } from "../../store/useImageStore.js";
 import AddImageInCollection from "./addImageInCollection.vue";
 
 const router = useRouter();
 const imageStore = useImageStore();
 const image = ref(null);
 
+const toggleModal = ref(false);
+
+const showModal = () => {
+  toggleModal.value = !toggleModal.value;
+};
 
 watch(
   () => imageStore.selectedImage,
@@ -93,7 +98,7 @@ function formatDate(dateString) {
             <span class="text-sm">Download</span>
           </button>
 
-          <button
+          <button @click="showModal"
             class="bg-colorbtn rounded-md px-4 py-2 flex flex-row items-center gap-2"
           >
             <img
@@ -101,7 +106,7 @@ function formatDate(dateString) {
               alt="add-to-collection"
               class="w-4 h-4"
             />
-            <span class="text-sm">Add to collection</span>
+            <span class="text-sm"  >Add to collection</span>
           </button>
         </div>
 
@@ -109,8 +114,8 @@ function formatDate(dateString) {
           <h1 class="text-2xl font-semibold">Collections</h1>
         </div>
       </div>
-      <add-image-in-collection  show="false"/>
-<!--        <pre>{{ image }}</pre>-->
+      <add-image-in-collection  :show="toggleModal" @close="toggleModal = false" />
+       <!-- <pre>{{ image }}</pre> -->
     </div>
   </div>
 </template>

@@ -4,20 +4,19 @@ import { ref } from "vue";
 const props = defineProps({
     placeholder: String,
     width: Number,
-  searchKey: String,
+    searchKey: String,
 })
+
 const emit = defineEmits(["search"]);
 const searchText = ref("");
 
 const triggerSearch = () => {
   if (searchText.value.trim() !== "") {
-    emit("search", {
-      key: props.searchKey,
-      value: searchText.value,
-    });
+    // console.log("Search triggered with:", searchText.value);
+    // Emit the search event with the search key and value
+    emit("search", {key: props.searchKey,value: searchText.value,});
   }
 };
-
 
 
 
@@ -55,4 +54,3 @@ const triggerSearch = () => {
   </div>
 </template>
 
-<style lang="scss"></style>

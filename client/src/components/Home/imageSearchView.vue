@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
-import { useImageStore } from "../store/useImageStore";
-import { fetchImagesUnsplash } from "../service/unsplash.js";
+import { useImageStore } from "../../store/useImageStore.js";
+import { fetchImagesUnsplash , fetchTestImagesTest } from "../../service/unsplash.js";
 
 const router = useRouter();
 const imageStore = useImageStore();
@@ -15,11 +15,13 @@ const goToDetail = (image) => {
 const props = defineProps({
   WordSearch: {
     type: String,
+
   },
 });
 const images = ref([]);
 onMounted(async () => {
-  images.value = await fetchImagesUnsplash(props.WordSearch);
+  // images.value = await fetchImagesUnsplash(props.WordSearch );
+  images.value = await fetchTestImagesTest( );
 });
 </script>
 
@@ -45,4 +47,3 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped lang="scss"></style>

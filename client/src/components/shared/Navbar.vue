@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { useDarkMode } from "../composables/useDarkMode.js";
+import { useDarkMode } from "../../composables/useDarkMode.js";
 
 const { isDark, toggleTheme } = useDarkMode();
 const route = useRoute();
@@ -62,7 +62,7 @@ const links = [
         </div>
 
         <div class="darkMode flex items-center sm:mr-[48px]">
-          <button @click="toggleTheme" class="p-2 rounded">
+          <button @click="toggleTheme"   class="p-2 rounded"> 
             {{ isDark ? "☀️ " : "🌙 " }}
           </button>
         </div>

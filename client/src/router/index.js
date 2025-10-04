@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import ImageDetail from "../components/ImageDetail.vue";
+import ImageDetail from "../components/Image/ImageDetail.vue";
 import Collections from "../views/Collections.vue";
-import CollectionDetailView from "../components/CollectionDetailView.vue";
+import CollectionDetailView from "../components/Collection/CollectionDetailView.vue";
 
 const routes = [
   { path: "/", redirect: "/home" },
