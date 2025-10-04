@@ -1,5 +1,5 @@
 <script setup >
-import SearchBar from "./SearchBar.vue";
+import SearchBar from "./Home/SearchBar.vue";
 import { ref, computed, watch, onMounted } from "vue"
 import { fetchCollections, addImageToCollection } from "../service/collectionService.js"
 
@@ -45,7 +45,7 @@ const handleAddToCollection = async (collectionId) => {
 <template>
   <div v-if="show" class="fixed inset-0 z-50 bg-black bg-opacity-30 flex items-center justify-center ">
     <div class="w-[600px] h-[600px] rounded-md bg-white p-5">
-<!--    Region  titre-->
+<!--   # Region  titre-->
       <div class="w-full h-auto text-3xl font-medium mb-5 ">Add to Collections</div>
 <!--  End region -->
 
@@ -79,8 +79,7 @@ const handleAddToCollection = async (collectionId) => {
       <!--  End  Region  -->
 
       <!--    Region  -->
-
-      <div  class="my-5" >{{result }} matches</div>
+      <div   class="my-5" >{{ result }} matches</div>
 
       <!--  End  Region  -->
 
@@ -104,9 +103,7 @@ const handleAddToCollection = async (collectionId) => {
                   </div>
               </div>
         </div>
-
       <!--  End  Region  -->
-
     </div>
   </div>
 </template>
